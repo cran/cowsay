@@ -3,8 +3,10 @@ cowsay
 
 
 
-[![Build Status](https://api.travis-ci.org/sckott/cowsay.png)](https://travis-ci.org/sckott/cowsay)
+[![Build Status](https://travis-ci.org/sckott/cowsay.svg?branch=master)](https://travis-ci.org/sckott/cowsay)
 [![Build status](https://ci.appveyor.com/api/projects/status/frfd77fcaxib2qkr/branch/master)](https://ci.appveyor.com/project/sckott/cowsay/branch/master)
+[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/cowsay)](https://github.com/metacran/cranlogs.app)
+[![cran version](http://www.r-pkg.org/badges/version/cowsay)](https://cran.r-project.org/package=cowsay)
 
 ### What is this?
 
@@ -22,14 +24,16 @@ If you are familiar with `cowsay` on the cli, then you know what this is, but fo
 * Andy Teucher
 * Karl Broman
 * Franz-Sebastian Krah
+* Lucy D'Agostino McGowan
+* Guangchuang Yu
+* Paolo Sonego
 
-That's right, it takes 10 people to make `cowsay` - it's that hard.
+That's right, it takes 13 people to make `cowsay` - it's that hard.
 
 ### Where to find ASCII animal art
 
 Sources to look in:
 
-* http://www.retrojunkie.com/asciiart/asciiart.htm - apprently this person just collects ascii art, doesn't make any,
 * http://www.chris.com/ascii/ - again, this person only collects them - no mention of license, permissions, etc.
 * http://www.asciiworld.com/
 
@@ -71,7 +75,16 @@ So, let's go with this rule: Let's include found (on the web) ascii art in this 
 
 Asciicast: [https://asciinema.org/a/7745](https://asciinema.org/a/7745)
 
-### Quick start
+### Install
+
+From CRAN
+
+
+```r
+install.packages("cowsay")
+```
+
+Dev version
 
 
 ```r
@@ -84,30 +97,31 @@ devtools::install_github("sckott/cowsay")
 library("cowsay")
 ```
 
-#### The animals
+### The animals
 
 
 ```r
 sort(names(animals))
 #>  [1] "ant"          "anxiouscat"   "bat"          "bat2"        
 #>  [5] "behindcat"    "bigcat"       "buffalo"      "cat"         
-#>  [9] "chicken"      "clippy"       "cow"          "endlesshorse"
-#> [13] "facecat"      "fish"         "frog"         "ghost"       
-#> [17] "grumpycat"    "hypnotoad"    "longcat"      "longtailcat" 
-#> [21] "mushroom"     "pig"          "poop"         "pumpkin"     
-#> [25] "rabbit"       "shark"        "shortcat"     "signbunny"   
-#> [29] "smallcat"     "snowman"      "spider"       "stretchycat" 
-#> [33] "trilobite"    "yoda"
+#>  [9] "chicken"      "clippy"       "cow"          "daemon"      
+#> [13] "endlesshorse" "facecat"      "fish"         "frog"        
+#> [17] "ghost"        "grumpycat"    "hypnotoad"    "longcat"     
+#> [21] "longtailcat"  "monkey"       "mushroom"     "pig"         
+#> [25] "poop"         "pumpkin"      "rabbit"       "shark"       
+#> [29] "shortcat"     "signbunny"    "smallcat"     "snowman"     
+#> [33] "spider"       "stretchycat"  "trilobite"    "turkey"      
+#> [37] "yoda"
 ```
 
-#### Say Something
+### Say Something
 
 
 ```r
 say('time')
 #> 
 #>  -------------- 
-#> 2015-10-07 17:47:12 
+#> 2016-12-14 16:46:02 
 #>  --------------
 #>     \
 #>       \
@@ -167,7 +181,7 @@ say("boo!", "ghost")
 #> 
 ```
 
-#### Vary type of output, default calls message()
+### Vary type of output, default calls message()
 
 
 ```r
@@ -224,7 +238,7 @@ say("hell no!", type="string")
 ```
 
 
-#### Catfacts!!!!
+### Catfacts!!!!
 
 From the [catfacts API](http://catfacts-api.appspot.com/)
 
@@ -249,7 +263,7 @@ say("catfact", "cat")
 #>               \_)
 ```
 
-#### Random quote
+### Random quote
 
 From the iheartquotes API (http://iheartquotes.com/api)
 
@@ -260,7 +274,7 @@ From the iheartquotes API (http://iheartquotes.com/api)
 say("iheart", "chicken")
 ```
 
-#### Long cat
+### Long cat
 
 From the [a Boing Boing tweet on 2014-05-10](https://twitter.com/BoingBoing/status/465170473194512384)
 
@@ -300,7 +314,7 @@ say("it's caturday", "longcat")
 #> 
 ```
 
-#### Grumpy cat
+### Grumpy cat
 
 
 ```r
@@ -350,7 +364,7 @@ say('I HAD FUN ONCE, IT WAS AWFUL', by='grumpycat')
 #> 
 ```
 
-#### Bunny Holding a sign
+### Bunny Holding a sign
 
 
 ```r
@@ -366,7 +380,7 @@ say(by='signbunny')
 #> 
 ```
 
-#### Fish
+### Fish
 
 
 ```r
@@ -383,18 +397,17 @@ say(by='fish')
 #> 
 ```
 
-#### R fortunes
+### R fortunes
 
 
 ```r
 say('fortune','cat')
 #> 
 #>  -------------- 
-#> I would heed the warnings and diagnostics. They are there for a reason. The Ostrich algorithm does not help you.
-#>  Dirk Eddelbuettel
-#>  in reply to a questioner who said he had not run R CMD check because he suspected other problems would be found
-#>  Stackoverflow
-#>  November 2013 
+#> Tradition among experienced S programmers has always been that loops (typically 'for' loops) are intrinsically inefficient: expressing computations without loops has provided a measure of entry into the inner circle of S programming.
+#>  John Chambers
+#>  Programming With Data, p. 173
+#>  1998 
 #>  --------------
 #>     \
 #>       \
@@ -446,11 +459,11 @@ say(fortune=100)
 say(fortune='whatever')
 #> 
 #>  -------------- 
-#> Justin: Is there a function that just does whatever I'm thinking (aka whatever my homework question is...)?
-#> Joshua Ulrich: That's the magic_pony function.
-#>  Justin and Joshua Ulrich
-#>  stackoverflow.com
-#>  June 2013 
+#> Tom Backer Johnsen: I have just started looking at R, and are getting more and more irritated at myself for not having done that before. However, one of the things I have not found in the documentation is some way of preparing output from R for convenient formatting into something like MS Word.
+#> Barry Rowlingson: Well whatever you do, don't start looking at LaTeX, because that will get you even more irritated at yourself for not having done it before.
+#>  Tom Backer Johnsen and Barry Rowlingson
+#>  R-help
+#>  February 2006 
 #>  --------------
 #>     \
 #>       \
@@ -468,7 +481,7 @@ say(fortune='whatever')
 #> 
 ```
 
-#### Trilobite
+### Trilobite
 
 
 ```r
@@ -493,7 +506,7 @@ say("Hi there :)", by='trilobite')
 #> 
 ```
 
-#### Shark
+### Shark
 
 
 ```r
@@ -534,7 +547,7 @@ say('Q: What do you call a solitary shark\nA: A lone shark', by='shark')
 #> 
 ```
 
-#### Buffalo
+### Buffalo
 
 
 ```r
@@ -563,7 +576,7 @@ say('Q: What do you call a single buffalo?\nA: A buffalonely', by='buffalo')
 #> 
 ```
 
-#### Clippy
+### Clippy
 
 
 ```r
@@ -589,58 +602,14 @@ say(fortune=59, by="clippy")
 #>   \___/ GB
 ```
 
-#### Yoda
+### Yoda
 
 
 ```r
-say("You must unlearn what you have learned", by="yoda")
-#> 
-#> 
-#> 
-#>  ----- 
-#> You must unlearn what you have learned 
-#>  ------ 
-#>     \   
-#>      \
-#>                    ____
-#>                 _.' :  `._
-#>             .-.'`.  ;   .'`.-.
-#>    __      / : ___\ ;  /___ ; \      __
-#>   ,'_ ""--.:__;".-.";: :".-.":__;.--"" _`,
-#>   :' `.t""--.. '<@.`;_  ',@>` ..--""j.' `;
-#>        `:-.._J '-.-'L__ `-- ' L_..-;'
-#>           "-.__ ;  .-"  "-.  : __.-"
-#>              L ' /.------.\ ' J
-#>              "-.   "--"   .-"
-#>              __.l"-:_JL_;-";.__
-#>          .-j/'.;  ;""""  / .'\"-.
-#>          .' /:`. "-.:     .-" .';  `.
-#>       .-"  / ;  "-. "-..-" .-"  :    "-.
-#>   .+"-.  : :      "-.__.-"      ;-._   \
-#>   ; \  `.; ;                    : : "+. ;
-#>   :  ;   ; ;                    : ;  : \:
-#>   ;  :   ; :                    ;:   ;  :
-#>   : \  ;  :  ;                  : ;  /  ::
-#>   ;  ; :   ; :                  ;   :   ;:
-#>   :  :  ;  :  ;                : :  ;  : ;
-#>   ;\    :   ; :                ; ;     ; ;
-#>   : `."-;   :  ;              :  ;    /  ;
-#>  ;    -:   ; :              ;  : .-"   :
-#>   :\     \  :  ;            : \.-"      :
-#>   ;`.    \  ; :            ;.'_..--  / ;
-#>   :  "-.  "-:  ;          :/."      .'  :
-#>    \         \ :          ;/  __        :
-#>     \       .-`.\        /t-""  ":-+.   :
-#>      `.  .-"    `l    __/ /`. :  ; ; \  ;
-#>        \   .-" .-"-.-"  .' .'j \  /   ;/
-#>         \ / .-"   /.     .'.' ;_:'    ;
-#>   :-""-.`./-.'     /    `.___.'
-#>                \ `t  ._  /  bug
-#>                 "-.t-._:'
-#> 
+say("starwars", by = "yoda")
 ```
 
-#### Bats!
+### Bats!
 
 
 ```r
@@ -667,7 +636,81 @@ say("hi, i'm a bat", by="bat")
 
 See also `bat2`
 
-#### Endless horse
+### Monkey!
+
+
+```r
+say("fortune", by = "monkey")
+#> 
+#> 
+#>  ------------- 
+#> The Huli of Papua New Guinea use '15' to mean a very large number and '15 times 15 samting (something)' to mean something close to infinity.
+#>  David Whiting
+#>  in a discussion about trying to estimate the number of R users
+#>  R-help
+#>  April 2004 
+#>  -------------- 
+#>               \   
+#>                \  
+#>                 \
+#> 
+#>                   .="=.
+#>                 _/.-.-.\_     _
+#>                ( ( o o ) )    ))
+#>                 |/  "  \|    //
+#>                  \'---'/    //
+#>            jgs   /`"""`\\  ((
+#>                 / /_,_\ \\  \\
+#>                 \_\_'__/  \  ))
+#>                 /`  /`~\   |//
+#>                /   /    \  /
+#>           ,--`,--'\/\    /
+#>           '-- "--'  '--'
+```
+
+### Daemon!
+
+
+```r
+say("fortune", by = "daemon")
+#> 
+#>  ----- 
+#> (3 times...rrrrgh...) and why do you think the mailing list is called R-*packages* ???????????
+#> Please do
+#>   for(i in 1:20) cat("It's a package!\n")
+#>  Martin Maechler
+#>  after a newly released *package* has been called *library* three times in its announcement on R-packages
+#>  R-help
+#>  March 2006 
+#>  ------ 
+#>     \   
+#>      \  
+#>       \
+#>             ,        ,
+#>            /(        )`
+#>            \ \___   / |
+#>             /- _  `-/  '
+#>            (/\/ \ \   /\
+#>            / /   | `    
+#>            O O   ) /    |
+#>            `-^--'`<     '
+#>           (_.)  _  )   /
+#>            `.___/`    /
+#>              `-----' /
+#> <----.     __ / __   \
+#> <----|====O)))==) \) /====
+#> <----'    `--' `.__,' \
+#>              |        |
+#>               \       /
+#>         ______( (_  / \______
+#>       ,'  ,-----'   |        \
+#>       `--{__________)        \/ [nosig]
+```
+
+
+See also `bat2`
+
+### Endless horse
 
 
 ```r
@@ -708,7 +751,7 @@ endless_horse()
 ##                    | | | |             || |
 ```
 
-#### Using pipes
+### Using pipes
 
 
 ```r
@@ -727,7 +770,7 @@ library("magrittr")
 #> 
 ```
 
-#### I just want the animals!
+### I just want the animals!
 
 Okay, hold your endless horses. Just use the exported vector `animals`, and you can select the animal you want by name.
 
