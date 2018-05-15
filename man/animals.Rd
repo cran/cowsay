@@ -4,7 +4,7 @@
 \name{animals}
 \alias{animals}
 \title{Animals}
-\format{An object of class \code{character} of length 37.}
+\format{An object of class \code{character} of length 41.}
 \usage{
 animals
 }
@@ -23,4 +23,3 @@ animals['clippy']
 animals[['clippy']]
 }
 \keyword{datasets}
-

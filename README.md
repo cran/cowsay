@@ -14,21 +14,26 @@ If you are familiar with `cowsay` on the cli, then you know what this is, but fo
 
 ### Contributors
 
-* Scott Chamberlain
-* Tyler Rinker
-* Thomas Leeper
-* Noam Ross
-* Rich FitzJohn
-* Kiyoko Gotanda
-* Carson Sievert
-* Andy Teucher
-* Karl Broman
-* Franz-Sebastian Krah
-* Lucy D'Agostino McGowan
-* Guangchuang Yu
-* Paolo Sonego
 
-That's right, it takes 13 people to make `cowsay` - it's that hard.
+
+
+ * Scott Chamberlain
+ * Tyler Rinker
+ * Thomas Leeper
+ * Noam Ross
+ * Rich FitzJohn
+ * Kiyoko Gotanda
+ * Carson Sievert
+ * Andy Teucher
+ * Karl Broman
+ * Franz-Sebastian Krah
+ * Lucy D'Agostino McGowan
+ * Guangchuang Yu
+ * Paolo Sonego
+ * Philipp Boersch-Supan
+ * Andreas Brandmaier
+
+That's right, it takes 15 people to make `cowsay` - it's that hard.
 
 ### Where to find ASCII animal art
 
@@ -39,7 +44,7 @@ Sources to look in:
 
 Permissions
 
-In the [ascii art mailing list](https://groups.google.com/forum/#!forum/alt.ascii-art) they say:
+In the ascii art mailing list https://groups.google.com/forum/#!forum/alt.ascii-art they say:
 
 ```
  As for posting other people's ASCII art,
@@ -73,7 +78,7 @@ So, let's go with this rule: Let's include found (on the web) ascii art in this 
 
 ### Quick watch start
 
-Asciicast: [https://asciinema.org/a/7745](https://asciinema.org/a/7745)
+Asciicast: <https://asciinema.org/a/7745>
 
 ### Install
 
@@ -105,13 +110,14 @@ sort(names(animals))
 #>  [1] "ant"          "anxiouscat"   "bat"          "bat2"        
 #>  [5] "behindcat"    "bigcat"       "buffalo"      "cat"         
 #>  [9] "chicken"      "clippy"       "cow"          "daemon"      
-#> [13] "endlesshorse" "facecat"      "fish"         "frog"        
-#> [17] "ghost"        "grumpycat"    "hypnotoad"    "longcat"     
-#> [21] "longtailcat"  "monkey"       "mushroom"     "pig"         
-#> [25] "poop"         "pumpkin"      "rabbit"       "shark"       
-#> [29] "shortcat"     "signbunny"    "smallcat"     "snowman"     
-#> [33] "spider"       "stretchycat"  "trilobite"    "turkey"      
-#> [37] "yoda"
+#> [13] "duck"         "duckling"     "egret"        "endlesshorse"
+#> [17] "facecat"      "fish"         "frog"         "ghost"       
+#> [21] "grumpycat"    "hypnotoad"    "longcat"      "longtailcat" 
+#> [25] "monkey"       "mushroom"     "owl"          "pig"         
+#> [29] "poop"         "pumpkin"      "rabbit"       "shark"       
+#> [33] "shortcat"     "signbunny"    "smallcat"     "snowman"     
+#> [37] "spider"       "stretchycat"  "trilobite"    "turkey"      
+#> [41] "yoda"
 ```
 
 ### Say Something
@@ -121,7 +127,7 @@ sort(names(animals))
 say('time')
 #> 
 #>  -------------- 
-#> 2016-12-14 16:46:02 
+#> 2018-05-15 10:34:25 
 #>  --------------
 #>     \
 #>       \
@@ -179,6 +185,24 @@ say("boo!", "ghost")
 #>      \   \
 #>       `~~~' [nosig]
 #> 
+```
+
+
+```r
+say("I love hooo you are!", "owl")
+#> 
+#>  ----- 
+#> I love hooo you are! 
+#>  ------ 
+#>     \   
+#>      \  
+#>       \
+#>        /\___/\
+#>        {o}{o}|
+#>        \ v  /|
+#>        |    \ \
+#>         \___/_/       [ab] 
+#>           | |
 ```
 
 ### Vary type of output, default calls message()
@@ -240,7 +264,7 @@ say("hell no!", type="string")
 
 ### Catfacts!!!!
 
-From the [catfacts API](http://catfacts-api.appspot.com/)
+From the catfacts API  at <https://catfact.ninja>
 
 
 ```r
@@ -261,17 +285,6 @@ say("catfact", "cat")
 #>           \| | |_|/\
 #>      jgs  //_// ___/
 #>               \_)
-```
-
-### Random quote
-
-From the iheartquotes API (http://iheartquotes.com/api)
-
-> DOESN'T WORK RIGHT NOW
-
-
-```r
-say("iheart", "chicken")
 ```
 
 ### Long cat
@@ -404,10 +417,10 @@ say(by='fish')
 say('fortune','cat')
 #> 
 #>  -------------- 
-#> Tradition among experienced S programmers has always been that loops (typically 'for' loops) are intrinsically inefficient: expressing computations without loops has provided a measure of entry into the inner circle of S programming.
-#>  John Chambers
-#>  Programming With Data, p. 173
-#>  1998 
+#> So apparently you wish to report as a bug the fact that R 1.8.0 is different from R 1.4.0.
+#>  Douglas Bates
+#>  R-devel
+#>  October 2003 
 #>  --------------
 #>     \
 #>       \
@@ -644,11 +657,10 @@ say("fortune", by = "monkey")
 #> 
 #> 
 #>  ------------- 
-#> The Huli of Papua New Guinea use '15' to mean a very large number and '15 times 15 samting (something)' to mean something close to infinity.
-#>  David Whiting
-#>  in a discussion about trying to estimate the number of R users
+#> My best advice regarding R^2 statistics with nonlinear models is, as Nancy Reagan suggested, "Just say no.".
+#>  Douglas Bates
 #>  R-help
-#>  April 2004 
+#>  August 2000 
 #>  -------------- 
 #>               \   
 #>                \  
@@ -675,13 +687,11 @@ say("fortune", by = "monkey")
 say("fortune", by = "daemon")
 #> 
 #>  ----- 
-#> (3 times...rrrrgh...) and why do you think the mailing list is called R-*packages* ???????????
-#> Please do
-#>   for(i in 1:20) cat("It's a package!\n")
-#>  Martin Maechler
-#>  after a newly released *package* has been called *library* three times in its announcement on R-packages
-#>  R-help
-#>  March 2006 
+#> For recursive objects, search for recursive objects.
+#>  Barry Rowlingson
+#>  in a thread about "Recursive objects" and how to search for former discussions about the topic
+#>  R-devel
+#>  May 2011 
 #>  ------ 
 #>     \   
 #>      \  
@@ -705,6 +715,30 @@ say("fortune", by = "daemon")
 #>         ______( (_  / \______
 #>       ,'  ,-----'   |        \
 #>       `--{__________)        \/ [nosig]
+```
+
+### Egret
+
+
+```r
+say("je ne regrette rien", by = "egret")
+#> 
+#>  ----- 
+#> je ne regrette rien 
+#>  ------ 
+#>     \   
+#>      \  
+#>       \
+#>        \   _,
+#>       -==<' `
+#>           ) /
+#>          / (_.
+#>         |  ,-,`\
+#>          \\   \ \
+#>           `\,  \ \
+#>            ||\  \`|,
+#>  jgs      _|| `=`-'
+#>          ~~`~`
 ```
 
 
@@ -780,3 +814,8 @@ animals['clippy']
 #>                                                                                                                      clippy 
 #> "\n\n ----- \n%s \n ------ \n    \\   \n     \\\n   __\n   / \\\n   | |\n   @ @\n  || ||\n  || ||\n  |\\_/|\n  \\___/ GB\n"
 ```
+
+## Meta
+
+* License: MIT
+* Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.

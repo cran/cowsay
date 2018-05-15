@@ -14,7 +14,7 @@ say(what = "Hello world!", by = "cat", type = "message", length = 18,
 bigcat, longcat, shortcat, behindcat, longtailcat, anxiouscat, grumpycat,
 smallcat, ant, pumpkin, ghost, spider, rabbit, pig, snowman, frog, hypnotoad,
 signbunny, stretchycat, fish, trilobite, shark, buffalo, clippy, mushroom, 
-monkey, or rms for Richard Stallman.
+monkey, egret, or rms for Richard Stallman.
 Alternatively, use "random" to have your message spoken by a random 
 character.
 We use \code{\link{match.arg}} internally, so you can use unique parts of
@@ -40,10 +40,7 @@ You can put in any phrase you like, OR you can type in one of a few
 special phrases that do particular things. They are:
 
 \itemize{
- \item catfact A random cat fact from 
- http://catfacts-api.appspot.com/doc.html
- \item iheart A random quote from http://iheartquotes.com/api - 
- DOWN RIGHT NOW, REMOVED
+ \item catfact A random cat fact from https://catfact.ninja
  \item fortune A random quote from an R coder, from fortunes library
  \item time Print the current time
  \item rms Prints a random 'fact' about Richard Stallman from the 
@@ -53,12 +50,12 @@ special phrases that do particular things. They are:
 
 Note that if you choose \code{by='hypnotoad'} the quote is forced to be, 
 as you could imagine, 'All Glory to the HYPNO TOAD!'. For reference see
-\url{http://knowyourmeme.com/memes/hypnotoad}.
+http://knowyourmeme.com/memes/hypnotoad
 
 Signbunny: It's not for sure known who invented signbunny, but this article
-\url{http://www.vox.com/2014/9/18/6331753/sign-bunny-meme-explained} thinks
+http://www.vox.com/2014/9/18/6331753/sign-bunny-meme-explained thinks
 they found the first use in this tweet:
-\url{https://twitter.com/wei_bluebear/status/329101645780770817}
+https://twitter.com/wei_bluebear/status/329101645780770817
 
 Trilobite: from http://www.retrojunkie.com/asciiart/animals/dinos.htm (site 
 down though)
@@ -83,6 +80,7 @@ say("fortune", "facecat")
 say("fortune", "behindcat")
 say("fortune", "smallcat")
 say("fortune", "monkey")
+say("fortune", "egret")
 say("rms", "rms")
 
 # Vary type of output, default calls message()
@@ -103,10 +101,6 @@ say(fortune=45)
 # Using catfacts
 # say("catfact", "cat")
 
-# Using iheartquotes
-## DOESN'T WORK RIGHT NOW
-# say("iheart", "chicken")
-
 # The hypnotoad
 say(by="hypnotoad")
 
@@ -122,4 +116,3 @@ say('Q: What do you call a single buffalo?\\nA: A buffalonely', by='buffalo')
 # Clippy
 say(fortune=59, by="clippy")
 }
-

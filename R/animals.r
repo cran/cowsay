@@ -561,4 +561,50 @@ daemon =
         ______( (_  / \\______
       ,'  ,-----'   |        \\
       `--{__________)        \\/ [nosig]
-")
+",
+#egret by Joan Stark from http://www.chris.com/ascii/joan/www.geocities.com/SoHo/7373/birds.html#egret 
+egret =
+  "\n ----- \n%s \n ------ \n    \\\   \n     \\\  \n      \\\
+       \\   _,
+      -==<' `\
+          ) /
+         / (_.
+        |  ,-,`\\
+         \\\\   \\ \\
+          `\\,  \\ \\
+           ||\\  \\`|,
+ jgs      _|| `=`-'
+         ~~`~`
+",
+# duckling by Andreas Brandmaier, @brandmaier
+duckling = 
+  "\n ----- \n%s \n ------ \n    \\\   \n     \\\  \n      \\\
+       \\
+
+        >o  .
+         ===    [ab]
+                 
+",
+# duck by Andreas Brandmaier, @brandmaier
+duck =
+  "\n ----- \n%s \n ------ \n    \\\   \n     \\\  \n      \\\
+         __
+        /o \\
+      <=   |         ==
+        |__|        /===
+        |   \\______/  =
+        \\     ====   /
+         \\__________/     [ab]
+",
+# owl by Andreas Brandmaier, @brandmaier
+owl = 
+  "\n ----- \n%s \n ------ \n    \\\   \n     \\\  \n      \\\
+       /\\___/\\
+       {o}{o}|
+       \\ v  /|
+       |    \\ \\
+        \\___/_/       [ab] 
+          | | 
+"
+)
+
