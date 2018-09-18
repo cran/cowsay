@@ -3,6 +3,7 @@ cowsay
 
 
 
+[![cran checks](https://cranchecks.info/badges/worst/cowsay)](https://cranchecks.info/pkgs/cowsay)
 [![Build Status](https://travis-ci.org/sckott/cowsay.svg?branch=master)](https://travis-ci.org/sckott/cowsay)
 [![Build status](https://ci.appveyor.com/api/projects/status/frfd77fcaxib2qkr/branch/master)](https://ci.appveyor.com/project/sckott/cowsay/branch/master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/cowsay)](https://github.com/metacran/cranlogs.app)
@@ -12,28 +13,29 @@ cowsay
 
 If you are familiar with `cowsay` on the cli, then you know what this is, but for R.  If not, read below.  Why?  Why not?
 
-### Contributors
+### Contributors (alphebetical)
 
 
 
 
- * Scott Chamberlain
- * Tyler Rinker
- * Thomas Leeper
- * Noam Ross
- * Rich FitzJohn
- * Kiyoko Gotanda
- * Carson Sievert
+ * Amanda Dobbyn
+ * Andreas Brandmaier
  * Andy Teucher
- * Karl Broman
+ * Carson Sievert
  * Franz-Sebastian Krah
- * Lucy D'Agostino McGowan
  * Guangchuang Yu
+ * Karl Broman
+ * Kiyoko Gotanda
+ * Lucy D'Agostino McGowan
+ * Noam Ross
  * Paolo Sonego
  * Philipp Boersch-Supan
- * Andreas Brandmaier
+ * Rich FitzJohn
+ * Scott Chamberlain
+ * Thomas Leeper
+ * Tyler Rinker
 
-That's right, it takes 15 people to make `cowsay` - it's that hard.
+That's right, it takes 16 people to make `cowsay` - it's that hard.
 
 ### Where to find ASCII animal art
 
@@ -127,7 +129,7 @@ sort(names(animals))
 say('time')
 #> 
 #>  -------------- 
-#> 2018-05-15 10:34:25 
+#> 2018-08-02 11:54:09 
 #>  --------------
 #>     \
 #>       \
@@ -169,9 +171,19 @@ say("ain't that some shit", "chicken")
 #> 
 ```
 
+Add some color: 
+
 
 ```r
-say("boo!", "ghost")
+library(multicolor)
+library(crayon)
+```
+
+
+
+```r
+say("boo!", "ghost", 
+    what_color = "cyan", by_color = "saddlebrown")
 #> 
 #> 
 #>  ----- 
@@ -189,7 +201,8 @@ say("boo!", "ghost")
 
 
 ```r
-say("I love hooo you are!", "owl")
+say("I love hooo you are!", "owl", 
+    what_color = rgb(0, 1, 1), by_color = "#FF0000")
 #> 
 #>  ----- 
 #> I love hooo you are! 
@@ -204,6 +217,97 @@ say("I love hooo you are!", "owl")
 #>         \___/_/       [ab] 
 #>           | |
 ```
+
+String styles together [crayon-style](https://github.com/r-lib/crayon#styles):
+
+
+```r
+say(what = "rms", by = "rms", 
+        what_color = yellow$bgMagenta$bold,
+        by_color = cyan$italic)
+#> 
+#> 
+#>  ----- 
+#> Richard Stallman will never die, but may some day go to /dev/null. 
+#>  ------ 
+#>     \   
+#>      \
+#>                     @@@@@@ @
+#>                   @@@@     @@
+#>                  @@@@ =   =  @@ 
+#>                 @@@ @ _   _   @@ 
+#>                  @@@ @(0)|(0)  @@ 
+#>                 @@@@   ~ | ~   @@
+#>                 @@@ @  (o1o)    @@
+#>                @@@    #######    @
+#>                @@@   ##{+++}##   @@
+#>               @@@@@ ## ##### ## @@@@
+#>               @@@@@#############@@@@
+#>              @@@@@@@###########@@@@@@
+#>             @@@@@@@#############@@@@@
+#>             @@@@@@@### ## ### ###@@@@
+#>              @ @  @              @  @
+#>                @                    @
+```
+
+This doesn't preclude you from adding extra crayon colors to your `what` string directly.
+
+
+```r
+say(what = paste0("hello ", crayon::yellow("there "), crayon::underline("world")), 
+    by = "trilobite", 
+    what_color = bgBlue$cyan$italic,
+    by_color = "thistle")  # Don't ask me why "thistle" is pink/purple
+#> 
+#>   
+#>  -------------- 
+#> hello there world 
+#>  --------------
+#>     \
+#>       \
+#>         \
+#>           _____
+#>        .'` ,-. `'.
+#>       /   ([ ])   \
+#>      /.-""`(`)`""-.\
+#>       <'```(.)```'>
+#>       <'```(.)```'>
+#>        <'``(.)``'>
+#>    sk   <``\_/``>
+#>          `'---'`
+#> 
+```
+
+
+Multiple colors are also possible (uses the [`multicolor`](https://github.com/aedobbyn/multicolor) package):
+
+
+```r
+say(what = "I'm a rare Irish buffalo",
+    by = "buffalo", 
+    what_color = c("salmon2", "darkcyan", "salmon2", "darkcyan"),
+    by_color = c("green", "white", "orange"))
+#>  --------------
+#> I'm a rare Irish buffalo
+#> 
+#>  --------------
+#>     \
+#>       \
+#>         \
+#>                    _.-````'-,_
+#>          _,.,_ ,-'`           `'-.,_
+#>        /)     (                   '``-.
+#>       ((      ) )                      `\
+#>         \)    (_/                        )\
+#>         |       /)           '    ,'    / \
+#>         `\    ^'            '     (    /  ))
+#>           |      _/\ ,     /    ,,`\   (  "`
+#>           \Y,   |   \  \  | ````| / \_ \
+#>             `)_/      \  \  )    ( >  ( >
+#>                        \( \(     |/   |/
+#>           mic & dwb  /_(/_(    /_(  /_(
+```
+
 
 ### Vary type of output, default calls message()
 
@@ -417,10 +521,10 @@ say(by='fish')
 say('fortune','cat')
 #> 
 #>  -------------- 
-#> So apparently you wish to report as a bug the fact that R 1.8.0 is different from R 1.4.0.
-#>  Douglas Bates
-#>  R-devel
-#>  October 2003 
+#> Some OSX users know that OSX is really Unix [...], others think that OSX is cooler Windows, and they have ontological problems with non-Apple phenomena and constructs.
+#>  Roger Bivand
+#>  R-SIG-Geo
+#>  May 2012 
 #>  --------------
 #>     \
 #>       \
@@ -657,10 +761,12 @@ say("fortune", by = "monkey")
 #> 
 #> 
 #>  ------------- 
-#> My best advice regarding R^2 statistics with nonlinear models is, as Nancy Reagan suggested, "Just say no.".
-#>  Douglas Bates
-#>  R-help
-#>  August 2000 
+#> Gregor Gorjanc: But imagine how hard would it be to have two separate modes ... argh, probably a mess^2 or have I missed something obvious.
+#> Martin Maechler: Yes, exactly: "Mess ^ 2" -- and if you allow both 'drop' and 'na.rm' options, it's "Mess ^ 3" -- not something anyone really wants!
+#>  Gregor Gorjanc and Martin Maechler
+#>  in a discussion whether 'drop' should be set in options(), possibly depending on different user vs. programmer modes
+#>  R-devel
+#>  September 2006 
 #>  -------------- 
 #>               \   
 #>                \  
@@ -687,11 +793,10 @@ say("fortune", by = "monkey")
 say("fortune", by = "daemon")
 #> 
 #>  ----- 
-#> For recursive objects, search for recursive objects.
-#>  Barry Rowlingson
-#>  in a thread about "Recursive objects" and how to search for former discussions about the topic
-#>  R-devel
-#>  May 2011 
+#> The documentation level of R is already much higher than average for open source software and even than some commercial packages (esp. SPSS is notorious for its attitude of "You want to do one of these things. If you don't understand what the output means, click help and we'll pop up five lines of mumbo-jumbo that you're not going to understand either.")
+#>  Peter Dalgaard
+#>  R-help
+#>  April 2002 
 #>  ------ 
 #>     \   
 #>      \  
