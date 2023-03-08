@@ -3,11 +3,14 @@
 #' @export
 #'
 #' @param what (character) What do you want to say? See Details.
-#' @param by (character) Type of thing, one of cow, chicken, poop, cat, facecat,
-#' bigcat, longcat, shortcat, behindcat, longtailcat, anxiouscat, grumpycat,
-#' smallcat, ant, pumpkin, ghost, spider, rabbit, pig, snowman, frog, hypnotoad,
-#' signbunny, stretchycat, fish, trilobite, shark, buffalo, clippy, mushroom,
-#' monkey, egret, or rms for Richard Stallman.
+#' @param by (character) Type of thing, one of cow, chicken, chuck,
+#' clippy, poop, bigcat, ant, pumpkin, ghost, spider, rabbit, pig,
+#' snowman, frog, hypnotoad, shortcat, longcat, fish, signbunny,
+#' facecat, behindcat, stretchycat, anxiouscat, longtailcat, cat,
+#' trilobite, shark, buffalo, grumpycat, smallcat, yoda, mushroom, 
+#' endlesshorse, bat, bat2, turkey, monkey, daemon, egret, duckling,
+#' duck, owl, squirrel, squirrel2, goldfish, alligator, stegosaurus,
+#' whale, wolf, or rms for Richard Stallman.
 #' Alternatively, use "random" to have your message spoken by a random
 #' character.
 #' We use [match.arg()] internally, so you can use unique parts of
@@ -73,8 +76,11 @@
 #' @examples
 #' say()
 #' say("what")
-#' say("meow", "cat", what_color = "blue")
 #' say('time')
+#' 
+#' if (requireNamespace("multicolor", quietly=TRUE) && 
+#' requireNamespace("jsonlite", quietly=TRUE)) {
+#' say("meow", "cat", what_color = "blue")
 #' say('time', "poop", by_color = "cyan", what_color = "pink")
 #'
 #' library(jsonlite)
@@ -85,6 +91,7 @@
 #' say("whats up",
 #'     what_color = crayon::cyan$bgMagenta,
 #'     by_color = c("salmon1", "springgreen"))
+#' }
 #'
 #' say("who you callin chicken", "chicken")
 #' say("ain't that some shit", "poop")
