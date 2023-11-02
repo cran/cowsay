@@ -46,7 +46,6 @@ Sources to look in:
 
 -   <https://asciiart.website/> - again, this person only collects
     them - no mention of license, permissions, etc.
--   <https://www.asciiworld.com/>
 
 Permissions
 
@@ -118,7 +117,7 @@ Dev version
     say('time')
     #> 
     #>  -------------- 
-    #> 2023-03-06 12:53:45 
+    #> 2023-11-02 07:16:42.618198 
     #>  --------------
     #>     \
     #>       \
@@ -157,7 +156,6 @@ Dev version
 
 Add some color:
 
-    library(multicolor)
     library(crayon)
 
     say("boo!", "ghost", 
@@ -196,18 +194,22 @@ string directly.
 <p align="left">
 <img src="./man/img/trilobite.jpg" alt="trilobite" height="250px">
 </p>
+<!-- Multiple colors are also possible (uses the [`multicolor`](https://github.com/aedobbyn/multicolor) package):
 
-Multiple colors are also possible (uses the
-[`multicolor`](https://github.com/aedobbyn/multicolor) package):
 
-    say(what = "I'm a rare Irish buffalo",
-        by = "buffalo", 
-        what_color = c("salmon2", "darkcyan", "salmon2", "darkcyan"),
-        by_color = c("green", "white", "orange"))
+
+```r
+say(what = "I'm a rare Irish buffalo",
+    by = "buffalo", 
+    what_color = c("salmon2", "darkcyan", "salmon2", "darkcyan"),
+    by_color = c("green", "white", "orange"))
+```
+
 
 <p align="left">
-<img src="./man/img/irish_buffalo.jpg" alt="irish_buffalo" height="350px">
+  <img src="./man/img/irish_buffalo.jpg" alt="irish_buffalo" height="350px">
 </p>
+ -->
 
 ### Vary type of output, default calls message()
 
@@ -278,8 +280,8 @@ From the catfacts API at <https://catfact.ninja>
 
 ### Long cat
 
-From the [a Boing Boing tweet on
-2014-05-10](https://twitter.com/BoingBoing/status/465170473194512384)
+From the a Boing Boing tweet on 2014-05-10
+“twitter.com/BoingBoing/status/465170473194512384” (post may be gone)
 
     say("it's caturday", "longcat")
     #> 
@@ -382,12 +384,11 @@ From the [a Boing Boing tweet on
     say('fortune','cat')
     #> 
     #>  -------------- 
-    #> Michael Watson: Hopefully this one isn't in the manual or I am about to get shot :-S
-    #> Peter Dalgaard: *Kapow*...
-    #>  Michael Watson and Peter Dalgaard
-    #>  question on axis()
-    #>  R-help
-    #>  February 2006 
+    #> Let's not kid ourselves: the most widely used piece of software for statistics is Excel.
+    #>  Brian D. Ripley
+    #>  'Statistical Methods Need Software: A View of Statistical Computing'
+    #>  Opening lecture RSS 2002, Plymouth
+    #>  September 2002 
     #>  --------------
     #>     \
     #>       \
@@ -593,11 +594,16 @@ See also `bat2`
     say("fortune", by = "monkey")
     #> 
     #>  ------------- 
-    #> Getting flamed for asking dumb questions on a public mailing list is all part of growing up and being a man/woman.
-    #>  Michael Watson
-    #>  in a discussion on whether answers on R-help should be more polite
+    #> Corinna Schmitt: How can I divide the number 0.285 with 2. I need a function.
+    #>   Result: 0.285 / 2 = 0.1425
+    #> Gabor Csardi: Well, i think
+    #>   half.of.0.285 <- function() {
+    #>     0.1425
+    #>   }
+    #> would do the trick.
+    #>  Corinna Schmitt and Gabor Csardi
     #>  R-help
-    #>  December 2004 
+    #>  April 2007 
     #>  -------------- 
     #>               \   
     #>                \  
@@ -621,10 +627,14 @@ See also `bat2`
     say("fortune", by = "daemon")
     #> 
     #>  ----- 
-    #> I quit using SAS in 1991 because my productivity jumped at least 20% within one month of using S-Plus.
-    #>  Frank Harrell
-    #>  R-help
-    #>  November 2003 
+    #> Tony Plate: There looks to be a typo in the R-exts manual: [...]
+    #> Peter Dalgaard: 'svn blame' tells me that this was Brian's addition in rev.35362 [...]
+    #> Brian D. Ripley: I prefer 'svn praise' myself.
+    #> Peter Dalgaard: Or 'svn annotate'. I think it depends on what I'm looking for, plus the risk that the author (perpetrator, contributor) might be me...
+    #>  Tony Plate, Peter Dalgaard, and Brian D. Ripley
+    #>  about a typo in the documentation
+    #>  R-devel
+    #>  April 2007 
     #>  ------ 
     #>     \   
     #>      \  
@@ -739,5 +749,5 @@ and you can select the animal you want by name.
 -   License: MIT
 -   Please note that this project is released with a [Contributor Code
     of
-    Conduct](https://github.com/sckott/cowsay/blob/main/CODE_OF_CONDUCT.md).
+    Conduct](https://github.com/sckott/cowsay/blob/main/.github/CODE_OF_CONDUCT.md).
     By participating in this project you agree to abide by its terms.
