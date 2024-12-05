@@ -1,5 +1,4 @@
 ## ----echo=FALSE---------------------------------------------------------------
-# has_multicolor <- requireNamespace("multicolor", quietly = TRUE)
 knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE
@@ -9,7 +8,8 @@ knitr::opts_chunk$set(
 #  install.packages("cowsay")
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  remotes::install_github("sckott/cowsay")
+#  # install.packages("pak")
+#  pak::pak("sckott/cowsay")
 
 ## -----------------------------------------------------------------------------
 library(cowsay)
@@ -18,7 +18,7 @@ library(cowsay)
 sort(names(animals))
 
 ## -----------------------------------------------------------------------------
-cow <- animals[['cow']]
+cow <- animals[["cow"]]
 cat(cow)
 
 ## -----------------------------------------------------------------------------
@@ -31,7 +31,7 @@ say("boo!", "ghost")
 say("nope, don't do that", type = "warning")
 
 ## -----------------------------------------------------------------------------
-say('time')
+say("time")
 
 ## -----------------------------------------------------------------------------
 say("hello world", by = "cow")
