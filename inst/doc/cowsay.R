@@ -5,11 +5,11 @@ knitr::opts_chunk$set(
 )
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  install.packages("cowsay")
+# install.packages("cowsay")
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # install.packages("pak")
-#  pak::pak("sckott/cowsay")
+# # install.packages("pak")
+# pak::pak("sckott/cowsay")
 
 ## -----------------------------------------------------------------------------
 library(cowsay)
@@ -18,7 +18,7 @@ library(cowsay)
 sort(names(animals))
 
 ## -----------------------------------------------------------------------------
-cow <- animals[["cow"]]
+cow <- animal_fetch('cow')
 cat(cow)
 
 ## -----------------------------------------------------------------------------

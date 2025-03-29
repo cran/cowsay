@@ -11,7 +11,7 @@
 
 <meta name="author" content="Scott Chamberlain, Tyler Rinker, Thomas Leeper, Noam Ross, Rich FitzJohn, Kiyoko Gotanda, Carson Sievert, Andy Teucher, Karl Broman, Franz-Sebastian Krah, Lucy D’Agostino McGowan, Guangchuang Yu, Paolo Sonego, and Philipp Boersch-Supan" />
 
-<meta name="date" content="2024-12-05" />
+<meta name="date" content="2025-03-28" />
 
 <title>Introduction to cowsay</title>
 
@@ -1496,7 +1496,7 @@ border-radius: 0px;
 Ross, Rich FitzJohn, Kiyoko Gotanda, Carson Sievert, Andy Teucher, Karl
 Broman, Franz-Sebastian Krah, Lucy D’Agostino McGowan, Guangchuang Yu,
 Paolo Sonego, and Philipp Boersch-Supan</h4>
-<h4 class="date">2024-12-05</h4>
+<h4 class="date">2025-03-28</h4>
 
 </div>
 
@@ -1517,23 +1517,12 @@ pak::pak(&quot;sckott/cowsay&quot;)</code></pre>
 <p>The animals, and other ascii creatures, are all in a single named
 character vector that is exported from the package. Thus, you can access
 each animal yourself, and do whatever you want with it.</p>
-<p>As of this writing, there are 56 animals.</p>
+<p>As of this writing, there are 59 animals.</p>
 <p>The names of the animals:</p>
 <pre class="r"><code>sort(names(animals))
-#&gt;  [1] &quot;alligator&quot;    &quot;ant&quot;          &quot;anxiouscat&quot;   &quot;bat&quot;          &quot;bat2&quot;        
-#&gt;  [6] &quot;behindcat&quot;    &quot;bigcat&quot;       &quot;buffalo&quot;      &quot;cat&quot;          &quot;chicken&quot;     
-#&gt; [11] &quot;chuck&quot;        &quot;clippy&quot;       &quot;cow&quot;          &quot;cow_borg&quot;     &quot;cow_dead&quot;    
-#&gt; [16] &quot;cow_greedy&quot;   &quot;cow_sleepy&quot;   &quot;cow_tired&quot;    &quot;cow_wired&quot;    &quot;cow_young&quot;   
-#&gt; [21] &quot;daemon&quot;       &quot;duck&quot;         &quot;duckling&quot;     &quot;egret&quot;        &quot;endlesshorse&quot;
-#&gt; [26] &quot;facecat&quot;      &quot;fish&quot;         &quot;frog&quot;         &quot;ghost&quot;        &quot;goldfish&quot;    
-#&gt; [31] &quot;grumpycat&quot;    &quot;hypnotoad&quot;    &quot;longcat&quot;      &quot;longtailcat&quot;  &quot;monkey&quot;      
-#&gt; [36] &quot;mushroom&quot;     &quot;owl&quot;          &quot;pig&quot;          &quot;poop&quot;         &quot;pumpkin&quot;     
-#&gt; [41] &quot;rabbit&quot;       &quot;shark&quot;        &quot;shortcat&quot;     &quot;signbunny&quot;    &quot;smallcat&quot;    
-#&gt; [46] &quot;snowman&quot;      &quot;spider&quot;       &quot;squirrel&quot;     &quot;squirrel2&quot;    &quot;stegosaurus&quot; 
-#&gt; [51] &quot;stretchycat&quot;  &quot;trilobite&quot;    &quot;turkey&quot;       &quot;whale&quot;        &quot;wolf&quot;        
-#&gt; [56] &quot;yoda&quot;</code></pre>
+#&gt; NULL</code></pre>
 <p>For example, access the cow</p>
-<pre class="r"><code>cow &lt;- animals[[&quot;cow&quot;]]
+<pre class="r"><code>cow &lt;- animal_fetch(&#39;cow&#39;)
 cat(cow)
 #&gt; 
 #&gt;         ^__^ 
@@ -1549,7 +1538,7 @@ can use to envoke any animal in the package, and make it say whatever
 you want. Some examples:</p>
 <pre class="r"><code>say(&quot;why did the chicken cross the road&quot;, &quot;chicken&quot;)
 #&gt; 
-#&gt;  ------------------------------------ 
+#&gt;  ____________________________________ 
 #&gt; &lt; why did the chicken cross the road &gt;
 #&gt;  ------------------------------------ 
 #&gt;       \
@@ -1564,11 +1553,10 @@ you want. Some examples:</p>
 #&gt;           &#39;.`-..-;`
 #&gt;             `;-..&#39;
 #&gt;             _| _|
-#&gt;             /` /` [nosig]
-#&gt; </code></pre>
+#&gt;             /` /` [nosig]</code></pre>
 <pre class="r"><code>say(&quot;boo!&quot;, &quot;ghost&quot;)
 #&gt; 
-#&gt;  ------ 
+#&gt;  ______ 
 #&gt; &lt; boo! &gt;
 #&gt;  ------ 
 #&gt;   \
@@ -1578,11 +1566,10 @@ you want. Some examples:</p>
 #&gt;     (o o)
 #&gt;     | O \
 #&gt;      \   \
-#&gt;       `~~~&#39; [nosig]
-#&gt; </code></pre>
+#&gt;       `~~~&#39; [nosig]</code></pre>
 <pre class="r"><code>say(&quot;nope, don&#39;t do that&quot;, type = &quot;warning&quot;)
 #&gt; Warning in say(&quot;nope, don&#39;t do that&quot;, type = &quot;warning&quot;): 
-#&gt;  --------------------- 
+#&gt;  _____________________ 
 #&gt; &lt; nope, don&#39;t do that &gt;
 #&gt;  --------------------- 
 #&gt;       \
@@ -1597,8 +1584,8 @@ you want. Some examples:</p>
 time</p>
 <pre class="r"><code>say(&quot;time&quot;)
 #&gt; 
-#&gt;  ---------------------------- 
-#&gt; &lt; 2024-12-05 08:25:09.044271 &gt;
+#&gt;  ____________________________ 
+#&gt; &lt; 2025-03-28 17:21:43.114741 &gt;
 #&gt;  ---------------------------- 
 #&gt;       \
 #&gt;        \
@@ -1616,7 +1603,7 @@ warning</p>
 <p>Message</p>
 <pre class="r"><code>say(&quot;hello world&quot;, by = &quot;cow&quot;)
 #&gt; 
-#&gt;  ------------- 
+#&gt;  _____________ 
 #&gt; &lt; hello world &gt;
 #&gt;  ------------- 
 #&gt;       \
@@ -1630,7 +1617,7 @@ warning</p>
 <p>Warning</p>
 <pre class="r"><code>say(&quot;hello world&quot;, by = &quot;cow&quot;, type = &quot;warning&quot;)
 #&gt; Warning in say(&quot;hello world&quot;, by = &quot;cow&quot;, type = &quot;warning&quot;): 
-#&gt;  ------------- 
+#&gt;  _____________ 
 #&gt; &lt; hello world &gt;
 #&gt;  ------------- 
 #&gt;       \
@@ -1643,7 +1630,7 @@ warning</p>
 #&gt;              ||      ||</code></pre>
 <p>String</p>
 <pre class="r"><code>say(&quot;hello world&quot;, by = &quot;cow&quot;, type = &quot;string&quot;)
-#&gt; [1] &quot;\n ------------- \n&lt; hello world &gt;\n ------------- \n      \\\n       \\\n\n        ^__^ \n        (oo)\\ ________ \n        (__)\\         )\\ /\\ \n             ||------w|\n             ||      ||&quot;</code></pre>
+#&gt; [1] &quot;\n _____________ \n&lt; hello world &gt;\n ------------- \n      \\\n       \\\n\n        ^__^ \n        (oo)\\ ________ \n        (__)\\         )\\ /\\ \n             ||------w|\n             ||      ||&quot;</code></pre>
 </div>
 
 

@@ -99,7 +99,8 @@ From CRAN
 
 
 ``` r
-install.packages("cowsay")
+# install.packages("pak")
+pak::pak("cowsay")
 ```
 
 Dev version
@@ -119,19 +120,19 @@ library("cowsay")
 
 
 ``` r
-sort(names(animals))
+sort(animals)
 #>  [1] "alligator"    "ant"          "anxiouscat"   "bat"          "bat2"        
-#>  [6] "behindcat"    "bigcat"       "buffalo"      "cat"          "chicken"     
-#> [11] "chuck"        "clippy"       "cow"          "cow_borg"     "cow_dead"    
-#> [16] "cow_greedy"   "cow_sleepy"   "cow_tired"    "cow_wired"    "cow_young"   
-#> [21] "daemon"       "duck"         "duckling"     "egret"        "endlesshorse"
-#> [26] "facecat"      "fish"         "frog"         "ghost"        "goldfish"    
-#> [31] "grumpycat"    "hypnotoad"    "longcat"      "longtailcat"  "monkey"      
-#> [36] "mushroom"     "owl"          "pig"          "poop"         "pumpkin"     
-#> [41] "rabbit"       "shark"        "shortcat"     "signbunny"    "smallcat"    
-#> [46] "snowman"      "spider"       "squirrel"     "squirrel2"    "stegosaurus" 
-#> [51] "stretchycat"  "trilobite"    "turkey"       "whale"        "wolf"        
-#> [56] "yoda"
+#>  [6] "beavis"       "behindcat"    "bigcat"       "blowfish"     "buffalo"     
+#> [11] "cat"          "chicken"      "chuck"        "clippy"       "cow"         
+#> [16] "cow_borg"     "cow_dead"     "cow_greedy"   "cow_sleepy"   "cow_tired"   
+#> [21] "cow_wired"    "cow_young"    "daemon"       "dragon"       "duck"        
+#> [26] "duckling"     "egret"        "endlesshorse" "facecat"      "fish"        
+#> [31] "frog"         "ghost"        "goldfish"     "grumpycat"    "hypnotoad"   
+#> [36] "longcat"      "longtailcat"  "monkey"       "mushroom"     "owl"         
+#> [41] "pig"          "poop"         "pumpkin"      "rabbit"       "shark"       
+#> [46] "shortcat"     "signbunny"    "smallcat"     "snowman"      "spider"      
+#> [51] "squirrel"     "squirrel2"    "stegosaurus"  "stretchycat"  "trilobite"   
+#> [56] "turkey"       "whale"        "wolf"         "yoda"
 ```
 
 ### Say Something
@@ -140,8 +141,8 @@ sort(names(animals))
 ``` r
 say("time")
 #> 
-#>  ---------------------------- 
-#> < 2024-12-04 20:33:12.064934 >
+#>  ____________________________ 
+#> < 2025-03-28 15:30:56.460987 >
 #>  ---------------------------- 
 #>       \
 #>        \
@@ -157,7 +158,7 @@ say("time")
 ``` r
 say("ain't that some shit", "chicken")
 #> 
-#>  ---------------------- 
+#>  ______________________ 
 #> < ain't that some shit >
 #>  ---------------------- 
 #>       \
@@ -173,7 +174,6 @@ say("ain't that some shit", "chicken")
 #>             `;-..'
 #>             _| _|
 #>             /` /` [nosig]
-#> 
 ```
 
 Add some color: 
@@ -249,7 +249,7 @@ say(
 ``` r
 say("hell no!")
 #> 
-#>  ---------- 
+#>  __________ 
 #> < hell no! >
 #>  ---------- 
 #>       \
@@ -267,7 +267,7 @@ say("hell no!")
 ``` r
 say("hell no!", type = "warning")
 #> Warning in say("hell no!", type = "warning"): 
-#>  ---------- 
+#>  __________ 
 #> < hell no! >
 #>  ---------- 
 #>       \
@@ -284,7 +284,7 @@ say("hell no!", type = "warning")
 
 ``` r
 say("hell no!", type = "string")
-#> [1] "\n ---------- \n< hell no! >\n ---------- \n      \\\n       \\\n\n        ^__^ \n        (oo)\\ ________ \n        (__)\\         )\\ /\\ \n             ||------w|\n             ||      ||"
+#> [1] "\n __________ \n< hell no! >\n ---------- \n      \\\n       \\\n\n        ^__^ \n        (oo)\\ ________ \n        (__)\\         )\\ /\\ \n             ||------w|\n             ||      ||"
 ```
 
 
@@ -296,10 +296,8 @@ From the catfacts API  at <https://catfact.ninja>
 ``` r
 say("catfact", "cat")
 #> 
-#>  -------------------------------------------------------- 
-#> / In ancient Egypt, mummies were made of cats, and       \
-#> | embalmed mice were placed with them in their tombs. In |
-#> \ one ancient city, over 300,000 cat mummies were found. /
+#>  ________________________________________________________ 
+#> < About 37% of American homes today have at least 1 cat. >
 #>  -------------------------------------------------------- 
 #>          \
 #>           \
@@ -314,7 +312,6 @@ say("catfact", "cat")
 #>            \| | |_|/\
 #>       jgs  //_// ___/
 #>                \_)
-#> 
 ```
 
 ### Long cat
@@ -325,7 +322,7 @@ From the a Boing Boing tweet on 2014-05-10 "twitter.com/BoingBoing/status/465170
 ``` r
 say("it's caturday", "longcat")
 #> 
-#>  --------------- 
+#>  _______________ 
 #> < it's caturday >
 #>  --------------- 
 #>  \
@@ -354,7 +351,6 @@ say("it's caturday", "longcat")
 #>     |    |
 #>     U "  U
 #>         [BoingBoing]
-#> 
 ```
 
 ### Grumpy cat
@@ -363,7 +359,7 @@ say("it's caturday", "longcat")
 ``` r
 say("NO!", by = "grumpycat")
 #> 
-#>  ----- 
+#>  _____ 
 #> < NO! >
 #>  ----- 
 #>      \
@@ -371,14 +367,13 @@ say("NO!", by = "grumpycat")
 #> 
 #>       ﾊ _ ﾊ
 #>       ಠ X ಠ
-#> 
 ```
 
 
 ``` r
 say("WOKE UP TODAY, IT WAS TERRIBLE", by = "grumpycat")
 #> 
-#>  -------------------------------- 
+#>  ________________________________ 
 #> < WOKE UP TODAY, IT WAS TERRIBLE >
 #>  -------------------------------- 
 #>      \
@@ -386,14 +381,13 @@ say("WOKE UP TODAY, IT WAS TERRIBLE", by = "grumpycat")
 #> 
 #>       ﾊ _ ﾊ
 #>       ಠ X ಠ
-#> 
 ```
 
 
 ``` r
 say("I HAD FUN ONCE, IT WAS AWFUL", by = "grumpycat")
 #> 
-#>  ------------------------------ 
+#>  ______________________________ 
 #> < I HAD FUN ONCE, IT WAS AWFUL >
 #>  ------------------------------ 
 #>      \
@@ -401,7 +395,6 @@ say("I HAD FUN ONCE, IT WAS AWFUL", by = "grumpycat")
 #> 
 #>       ﾊ _ ﾊ
 #>       ಠ X ಠ
-#> 
 ```
 
 ### Bunny Holding a sign
@@ -410,7 +403,7 @@ say("I HAD FUN ONCE, IT WAS AWFUL", by = "grumpycat")
 ``` r
 say(by = "signbunny")
 #> 
-#>  -------------- 
+#>  ______________ 
 #> < Hello world! >
 #>  -------------- 
 #> \
@@ -420,7 +413,6 @@ say(by = "signbunny")
 #> (•ㅅ•) ||
 #> /   づ
 #>           [nosig]
-#> 
 ```
 
 ### Fish
@@ -429,7 +421,7 @@ say(by = "signbunny")
 ``` r
 say(by = "fish")
 #> 
-#>  -------------- 
+#>  ______________ 
 #> < Hello world! >
 #>  -------------- 
 #>        \
@@ -437,7 +429,6 @@ say(by = "fish")
 #> 
 #>   ><((((º>  ><((((º>  ><((((º>  ><((((º>  ><((((º>
 #>       Kiyoko Gotanda
-#> 
 ```
 
 ### R fortunes
@@ -447,13 +438,12 @@ say(by = "fish")
 library(fortunes)
 say("fortune", "cat")
 #> 
-#>  --------------------------------------------------------- 
-#> / Maybe you should contact Microsoft, and get them to     \
-#> | modify their tools so they work on the R sources?       |
-#> | Duncan Murdoch answering the question if there is a way |
-#> | compiling the R sources using VisualC++ R-help April    |
-#> \ 2004                                                    /
-#>  --------------------------------------------------------- 
+#>  ________________________________________________________ 
+#> / It is unusual for the actual data not to be available  \
+#> | in real problems.  Brian D. Ripley in reply to a       |
+#> | question how to fit a distribution if not the data but |
+#> \ only their histogram is available R-help June 2006     /
+#>  -------------------------------------------------------- 
 #>          \
 #>           \
 #> 
@@ -467,7 +457,6 @@ say("fortune", "cat")
 #>            \| | |_|/\
 #>       jgs  //_// ___/
 #>                \_)
-#> 
 ```
 
 You can also pick a particular fortune by number or regex search - if the `fortune` parameter is not `NULL` you don't have pass anything to the `what` parameter (the 1st parameter)
@@ -476,7 +465,7 @@ You can also pick a particular fortune by number or regex search - if the `fortu
 ``` r
 say(fortune = 100)
 #> 
-#>  --------------------------------------------------------- 
+#>  _________________________________________________________ 
 #> / I'm not sure I'd trust any computer recommendation from \
 #> | 1976, no matter how famous the authors are.  Peter      |
 #> | Dalgaard after Samuel Edward Kemp cited a               |
@@ -497,17 +486,11 @@ say(fortune = 100)
 ``` r
 say(fortune = "whatever")
 #> 
-#>  --------------------------------------------------------- 
-#> / Tom Backer Johnsen: I have just started looking at R,   \
-#> | and are getting more and more irritated at myself for   |
-#> | not having done that before. However, one of the things |
-#> | I have not found in the documentation is some way of    |
-#> | preparing output from R for convenient formatting into  |
-#> | something like MS Word. Barry Rowlingson: Well whatever |
-#> | you do, don't start looking at LaTeX, because that will |
-#> | get you even more irritated at yourself for not having  |
-#> | done it before.  Tom Backer Johnsen and Barry           |
-#> \ Rowlingson R-help February 2006                         /
+#>  _________________________________________________________ 
+#> / Justin: Is there a function that just does whatever I'm \
+#> | thinking (aka whatever my homework question is...)?     |
+#> | Joshua Ulrich: That's the magic_pony function.  Justin  |
+#> \ and Joshua Ulrich stackoverflow.com June 2013           /
 #>  --------------------------------------------------------- 
 #>       \
 #>        \
@@ -528,7 +511,7 @@ say("Hi there :)", by = "trilobite")
 
 ````
 #> 
-#>  ------------- 
+#>  _____________ 
 #> < Hi there :) >
 #>  ------------- 
 #>        \
@@ -543,7 +526,6 @@ say("Hi there :)", by = "trilobite")
 #>        <'``(.)``'>
 #>    sk   <``\_/``>
 #>          `'---'`
-#> 
 ````
 
 ### Shark
@@ -552,7 +534,7 @@ say("Hi there :)", by = "trilobite")
 ``` r
 say("Q: What do you call a solitary shark\nA: A lone shark", by = "shark")
 #> 
-#>  ------------------------------------------------------ 
+#>  ______________________________________________________ 
 #> < Q: What do you call a solitary shark A: A lone shark >
 #>  ------------------------------------------------------ 
 #>            \
@@ -582,7 +564,6 @@ say("Q: What do you call a solitary shark\nA: A lone shark", by = "shark")
 #>       ,-' _.-'        \  /    |/'-._...--'
 #>      :--``             )/
 #>   '
-#> 
 ```
 
 ### Buffalo
@@ -594,7 +575,7 @@ say("Q: What do you call a single buffalo?\nA: A buffalonely", by = "buffalo")
 
 `````
 #> 
-#>  -------------------------------------------------------- 
+#>  ________________________________________________________ 
 #> < Q: What do you call a single buffalo? A: A buffalonely >
 #>  -------------------------------------------------------- 
 #>                 \
@@ -612,7 +593,6 @@ say("Q: What do you call a single buffalo?\nA: A buffalonely", by = "buffalo")
 #>             `)_/      \  \  )    ( >  ( >
 #>                        \( \(     |/   |/
 #>           mic & dwb  /_(/_(    /_(  /_(
-#> 
 `````
 
 ### Clippy
@@ -621,7 +601,7 @@ say("Q: What do you call a single buffalo?\nA: A buffalonely", by = "buffalo")
 ``` r
 say(fortune = 59, by = "clippy")
 #> 
-#>  -------------------------------------------------------- 
+#>  ________________________________________________________ 
 #> / Let's not kid ourselves: the most widely used piece of \
 #> | software for statistics is Excel.  Brian D. Ripley     |
 #> | 'Statistical Methods Need Software: A View of          |
@@ -654,7 +634,7 @@ say("fortune", by = "yoda")
 ``` r
 say("hi, i'm a bat", by = "bat")
 #> 
-#>  --------------- 
+#>  _______________ 
 #> < hi, i'm a bat >
 #>  --------------- 
 #>                \
@@ -680,13 +660,13 @@ See also `bat2`
 ``` r
 say("fortune", by = "monkey")
 #> 
-#>  --------------------------------------------------------- 
-#> / I'm not sure I'd trust any computer recommendation from \
-#> | 1976, no matter how famous the authors are.  Peter      |
-#> | Dalgaard after Samuel Edward Kemp cited a               |
-#> | recommendation about nonlinear least squares computer   |
-#> \ programs from 'Box-Jenkins, 1976' R-help January 2005   /
-#>  --------------------------------------------------------- 
+#>  ________________________________________________________ 
+#> / Duncan Murdoch: Others need to run under ESS. Francois \
+#> | Pinard: While this is a good things for Emacs lovers,  |
+#> | the requirement is rather unwelcome for pagans! :-)    |
+#> | Duncan Murdoch and Francois Pinard on the availability |
+#> \ of command completion R-help May 2006                  /
+#>  -------------------------------------------------------- 
 #>                \
 #>                 \
 #> 
@@ -710,14 +690,13 @@ say("fortune", by = "monkey")
 ``` r
 say("fortune", by = "daemon")
 #> 
-#>  --------------------------------------------------------- 
-#> / What sort of editor would overlook this clear and       \
-#> | demonstrable message leaping out from the data in       |
-#> | favour of some arcane argument about "types of sums of  |
-#> | squares"? Several answers come to mind: A power freak,  |
-#> | a SAS afficianado, an idiot.  Bill Venables R-help July |
-#> \ 2007                                                    /
-#>  --------------------------------------------------------- 
+#>  _______________________________________________________ 
+#> / I wish <<- had never been invented, as it makes an    \
+#> | esoteric and dangerous feature of the language *seem* |
+#> | normal and reasonable. If you want to dumb down R/S   |
+#> | into a macro language, this is the operator for you.  |
+#> \ Bill Venables R-help July 2001                        /
+#>  ------------------------------------------------------- 
 #>                  \
 #>                   \
 #>             ,        ,
@@ -747,7 +726,7 @@ say("fortune", by = "daemon")
 ``` r
 say("je ne regrette rien", by = "egret")
 #> 
-#>  --------------------- 
+#>  _____________________ 
 #> < je ne regrette rien >
 #>  --------------------- 
 #>         \
@@ -770,43 +749,35 @@ See also `bat2`
 
 ### Endless horse
 
+With `endless=FALSE` cause we gotta compile the .md yo
+
 
 ``` r
-endless_horse()
-## -----
-## Hello world!
-## ------
-##    \
-##     \
-##      \
-##       ,
-##    _,,)\.~,,._
-##     (()`  ``)\))),,_
-##      |     \ ''((\)))),,_          ____
-##      |6`   |   ''((\())) "-.____.-"    `-.-,
-##      |    .'\    ''))))'                  \)))
-##      |   |   `.     ''                     ((((
-##      \, _)     \/                          |))))
-##       `'        |                          (((((
-##                 \                  |       ))))))
-##                  `|    |           ,\     /((((((
-##                   |   / `-.______.<  \   |  )))))
-##                   |   |  /         `. \  \  ((((
-##                   |  / \ |           `.\  | (((
-##                   \  | | |             )| |  ))
-##                    | | | |             || |  '   [endless.horse]
-##                    | | | |             || |
-##
-##                    | | | |             || |
-##                    | | | |             || |
-##                    | | | |             || |
-##                    | | | |             || |
-##                    | | | |             || |
-##                    | | | |             || |
-##                    | | | |             || |
-##                    | | | |             || |
-##                    | | | |             || |
-##                    | | | |             || |
+endless_horse(endless = FALSE)
+#> 
+#>  ______________ 
+#> < Hello world! >
+#>  -------------- 
+#>     \
+#>      \
+#> 
+#>        ,
+#>     _,,)\.~,,._
+#>      (()`  ``)\))),,_
+#>       |     \ ''((\)))),,_          ____
+#>       |6`   |   ''((\())) "-.____.-"    `-.-,
+#>       |    .'\    ''))))'                  \)))
+#>       |   |   `.     ''                     ((((
+#>       \, _)     \/                          |))))
+#>        `'        |                          (((((
+#>                  \                  |       ))))))
+#>                   `|    |           ,\     /((((((
+#>                    |   / `-.______.<  \   |  )))))
+#>                    |   |  /         `. \  \  ((((
+#>                    |  / \ |           `.\  | (((
+#>                    \  | | |             )| |  ))
+#>                     | | | |             || |  '   [endless.horse]
+#>                     | | | |             || |
 ```
 
 ### Using pipes
@@ -816,7 +787,7 @@ endless_horse()
 library("magrittr")
 "I HAD FUN ONCE, IT WAS AWFUL" %>% say("grumpycat")
 #> 
-#>  ------------------------------ 
+#>  ______________________________ 
 #> < I HAD FUN ONCE, IT WAS AWFUL >
 #>  ------------------------------ 
 #>      \
@@ -824,18 +795,16 @@ library("magrittr")
 #> 
 #>       ﾊ _ ﾊ
 #>       ಠ X ಠ
-#> 
 ```
 
 ### I just want the animals!
 
-Okay, hold your endless horses. Just use the exported vector `animals`, and you can select the animal you want by name.
+Okay, hold your endless horses. Just use the function `animal_fetch()` to  select the animal you want by name.
 
 
 ``` r
-animals["clippy"]
-#>                                                                        clippy 
-#> "\n    _\n   / \\\n   | |\n   @ @\n  || ||\n  || ||\n  |\\_/|\n  \\___/ GB\n"
+animal_fetch("clippy")
+#> [1] "\n    _\n   / \\\n   | |\n   @ @\n  || ||\n  || ||\n  |\\_/|\n  \\___/ GB"
 ```
 
 ## Meta

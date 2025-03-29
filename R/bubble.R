@@ -16,7 +16,7 @@
 #' bubble_say(x = quote)
 #' 
 #' cat(bubble_say(paste(quote, collapse = " ")), sep = "\n")
-#' ch <- animals[["chicken"]]
+#' ch <- animal_fetch('chicken')
 #' z <- paste(c(bubble_say(quote), bubble_tail(ch, "\\"), ch), collapse = "\n")
 #' cat(z)
 #'
@@ -25,7 +25,8 @@
 #' text_style <- crayon::make_style(text_color)
 #' text_style(bubble_say(quote))
 bubble_say <- function(x, width = 60) {
-  top <- bottom <- "-"
+  top <-  "_"
+  bottom <- "-"
   side <- "|"
   empty_to_avoid_rlang_header <- ""
   added_ws <- 2L
@@ -61,7 +62,8 @@ bubble_say <- function(x, width = 60) {
 #' @export
 #' @rdname bubble_say
 bubble_think <- function(x, width = 60) {
-  top <- bottom <- "-"
+  top <-  "_"
+  bottom <- "-"
   left <- "("
   right <- ")"
   empty_to_avoid_rlang_header <- ""
@@ -101,10 +103,10 @@ bubble_think <- function(x, width = 60) {
 #' about a 1/3 of the way from the left most character given the max
 #' character length
 #' @examples
-#' bubble_tail(animals[["chicken"]])
-#' cat(bubble_tail(animals[["chicken"]]), sep = "\n")
-#' cat(bubble_tail(animals[["chicken"]]), sep = "\n")
-#' cat(bubble_tail(animals[["chicken"]], "%"), sep = "\n")
+#' bubble_tail(animal_fetch('chicken'))
+#' cat(bubble_tail(animal_fetch('chicken')), sep = "\n")
+#' cat(bubble_tail(animal_fetch('chicken')), sep = "\n")
+#' cat(bubble_tail(animal_fetch('chicken'), "%"), sep = "\n")
 #'
 #' bubble_tail2(59)
 #' cat(bubble_tail2(59), sep = "\n")

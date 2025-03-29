@@ -3,7 +3,7 @@ Title: Messages, Warnings, Strings with Ascii Animals
 Description: Allows printing of character strings as messages/warnings/etc.
     with ASCII animals, including cats, cows, frogs, chickens, ghosts,
     and more.
-Version: 1.0.0
+Version: 1.2.0
 License: MIT + file LICENSE
 Authors@R: c(
     person("Scott", "Chamberlain", role = c("aut", "cre"),
@@ -35,7 +35,7 @@ Imports: crayon, rlang
 Suggests: fortunes, rmsfact, jsonlite, knitr, rmarkdown, testthat
 RoxygenNote: 7.3.2
 NeedsCompilation: no
-Packaged: 2024-12-05 16:25:09 UTC; sckott
+Packaged: 2025-03-29 00:21:44 UTC; sckott
 Author: Scott Chamberlain [aut, cre],
   Amanda Dobbyn [aut],
   Tyler Rinker [ctb],
@@ -55,4 +55,4 @@ Author: Scott Chamberlain [aut, cre],
   David Schoch [ctb]
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-12-05 17:00:02 UTC
+Date/Publication: 2025-03-29 00:40:02 UTC
